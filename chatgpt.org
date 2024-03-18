@@ -1,0 +1,28 @@
+#+PROPERTY: author: Adam Sanchez
+
+#+BEGIN_SRC python :results output append :session mysession :exports both
+  import chatgpt_selenium_automation
+  from chatgpt_selenium_automation import ChatGPTAutomation  # Adjusted import here
+
+  # Initializing ChatGPTAutomation as a singleton
+  chatgpt = ChatGPTAutomation("/usr/bin/google-chrome", "/usr/bin/chromedriver")
+
+  prompt = "Explain how to use agents with LLMs"
+  print("Prompt:", prompt)
+  chatgpt.send_prompt_to_chatgpt(prompt)
+
+  response = chatgpt.return_last_response()
+  print("Response:", response)
+
+   # Save the conversation to a text file
+  file_name = "conversation.txt"
+  chatgpt.save_conversation(file_name)
+
+  # Close the browser and terminate the WebDriver session
+  #chatgpt.quit()
+ 
+#+END_SRC
+
+#+RESULTS:
+: None
+
